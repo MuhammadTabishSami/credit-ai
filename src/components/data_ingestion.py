@@ -21,7 +21,7 @@ class DataIngestion:
      def initiate_data_ingestion(self):
           logging.info('Entered the Data Ingestion Component')
           try:
-               df = pd.read_csv(r'F:\netsol_project\task_1\credit_decisioning_risk_assesment\notebook\data\preprocessed_data.csv')
+               df = pd.read_csv(r'F:\netsol_project\task_1\raw\reducedd\reduced_data.csv')
                logging.info('Read the Dataset from Source as Dataframe')
                os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
                
