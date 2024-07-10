@@ -37,7 +37,8 @@ class DataTransformation:
                 transformers=[
                     ('num', numerical_pipeline, numerical_columns),
                     ('cat', categorical_pipeline, categorical_columns)
-                ]
+                ],
+                sparse_threshold=0
             )
 
             return preprocessor
@@ -57,9 +58,10 @@ class DataTransformation:
             numerical_columns = train_df.select_dtypes(include=['number']).columns.tolist()
             numerical_columns = [col for col in numerical_columns if col != target_col_name]
             categorical_columns = train_df.select_dtypes(include=['object', 'category']).columns.tolist()
+            categorical_columns = [col for col in categorical_columns if col != target_col_name]
 
             preprocessor = self.get_data_transformer_object(numerical_columns, categorical_columns)
-            logging.info('Obtained preprocessor object')
+            logging.info(f'Obtained preprocessor object of type: {type(preprocessor)}')
 
             # Preprocess features
             X_train = preprocessor.fit_transform(train_df[numerical_columns + categorical_columns])

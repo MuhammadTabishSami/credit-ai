@@ -13,11 +13,11 @@ if __name__ == '__main__':
 
     # Step 2: Data Transformation
     data_transformation = DataTransformation()
-    input_feature_train_arr, input_feature_test_arr, target_feature_train_df, target_feature_test_df, preprocessor_path = data_transformation.initiate_data_transformation(train_data_path, test_data_path,target_col_name)
+    X_train, X_test, y_train, y_test, preprocessor_path = data_transformation.initiate_data_transformation(train_data_path, test_data_path,target_col_name)
 
     # Step 3: Model Training
     model_trainer = ModelTrainer()
-    accuracy,cm,clf_report=model_trainer.initiate_model_trainer(input_feature_train_arr, input_feature_test_arr, preprocessor_path)
+    accuracy,cm,clf_report=model_trainer.initiate_model_trainer(X_train, X_test, y_train, y_test, preprocessor_path)
     
     # Print accuracy score
     print(f'Accuracy: {accuracy}')

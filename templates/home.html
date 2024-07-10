@@ -1,111 +1,84 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Credit Decisioning/Risk Assessment</title>
+    <!-- Include any CSS or styling links here -->
+</head>
 <body>
-    <div class="login">
-       <h1>Student Exam Performance Indicator</h1>
-   
-       <form action="{{ url_for('predict_datapoint')}}" method="post">
-        <h1>
-            <legend>Credit Decisioning/Risk Assessment</legend>
-        </h1>
-        <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <select class="form-control" name="gender" placeholder="Enter you Gender" required>
-                <option class="placeholder" selected disabled value="">Select your Gender</option>
-                <option value="male">
-                    Male
-                </option>
-                <option value="female">
-                    Female
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Race or Ethnicity</label>
-            <select class="form-control" name="ethnicity" placeholder="Enter you ethnicity" required>
-                <option class="placeholder" selected disabled value="">Select Ethnicity</option>
-                <option value="group A">
-                    Group A
-                </option>
-                <option value="group B">
-                    Group B
-                </option>
-                <option value="group C">
-                    Group C
-                </option>
-                <option value="group D">
-                    Group D
-                </option>
-                <option value="group E">
-                    Group E
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Parental Level of Education</label>
-            <select class="form-control" name="parental_level_of_education"
-                placeholder="Enter you Parent Education" required>
-                <option class="placeholder" selected disabled value="">Select Parent Education</option>
-                <option value="associate's degree">
-                    associate's degree
-                </option>
-                <option value="bachelor's degree">
-                    bachelor's degree
-                </option>
-                <option value="high school">
-                    high school
-                </option>
-                <option value="master's degree">
-                    master's degree
-                </option>
-                <option value="some college">
-                    some college
-                </option>
-                <option value="some high school">
-                    some high school
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Lunch Type</label>
-            <select class="form-control" name="lunch" placeholder="Enter you Lunch" required>
-                <option class="placeholder" selected disabled value="">Select Lunch Type</option>
-                <option value="free/reduced">
-                    free/reduced
-                </option>
-                <option value="standard">
-                    standard
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Test preparation Course</label>
-            <select class="form-control" name="test_preparation_course" placeholder="Enter you Course"
-                required>
-                <option class="placeholder" selected disabled value="">Select Test_course</option>
-                <option value="none">
-                    None
-                </option>
-                <option value="completed">
-                    Completed
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Writing Score out of 100</label>
-            <input class="form-control" type="number" name="reading_score"
-                placeholder="Enter your Reading score" min='0' max='100' />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Reading Score out of 100</label>
-            <input class="form-control" type="number" name="writing_score"
-                placeholder="Enter your Reading Score" min='0' max='100' />
-        </div>
-        <div class="mb-3">
-            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
-        </div>
-    </form>
-    <h2>
-       THE  prediction is {{results}}
-    </h2>
-   <body>
+    <div class="container">
+        <h1>Credit Decisioning/Risk Assessment</h1>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Debt Settlement Flag</label>
+                <select class="form-control" name="debt_settlement_flag" required>
+                    <option value="N">No</option>
+                    <option value="Y">Yes</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Sub Grade</label>
+                <select class="form-control" name="sub_grade" required>
+                    <option value="B5">B5</option>
+                    <option value="C2">C2</option>
+                    <option value="C5">C5</option>
+                    <!-- Add other options dynamically based on your unique classes -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Grade</label>
+                <select class="form-control" name="grade" required>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="A">A</option>
+                    <!-- Add other options dynamically based on your unique classes -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Term</label>
+                <select class="form-control" name="term" required>
+                    <option value=" 36 months">36 months</option>
+                    <option value=" 60 months">60 months</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last FICO Range High</label>
+                <input class="form-control" type="number" name="last_fico_range_high" placeholder="Enter last FICO range high" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last FICO Range Low</label>
+                <input class="form-control" type="number" name="last_fico_range_low" placeholder="Enter last FICO range low" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Collection Recovery Fee</label>
+                <input class="form-control" type="number" name="collection_recovery_fee" step="0.01" placeholder="Enter collection recovery fee" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Total Payment Involved</label>
+                <input class="form-control" type="number" name="total_pymnt_inv" step="0.01" placeholder="Enter total payment involved" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Interest Rate</label>
+                <input class="form-control" type="number" name="int_rate" step="0.01" placeholder="Enter interest rate" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">FICO Range High</label>
+                <input class="form-control" type="number" name="fico_range_high" placeholder="Enter FICO range high" />
+            </div>
+            <!-- Add other numerical input fields as needed -->
+
+            <!-- Add a submit button -->
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict your Loan" />
+            </div>
+        </form>
+
+         <!-- Display prediction results -->
+         <h2>
+            Prediction Result: {{results}}
+
+        </h2>
+
+
+
+</body>
 </html>
