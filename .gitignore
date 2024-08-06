@@ -159,6 +159,9 @@ data.csv
 train.csv
 test.csv
 
+#pem file
+ml-project-key.pem
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
