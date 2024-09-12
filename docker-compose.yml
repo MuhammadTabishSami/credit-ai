@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  frontend:
+    image: credit_frontend  # Use the pre-built frontend image
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    networks:
+      - my-network
+  backend:
+    image: credit_backend  # Use the pre-built backend image
+    ports:
+      - "8001:8001"
+    networks:
+      - my-network
+    volumes:
+      - ./artifacts:/usr/app/artifacts  # Mount the 'artifacts' directory
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  my-network:
+    driver: bridge

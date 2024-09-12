@@ -1,0 +1,22 @@
+.header {
+    background-color: #0B0010;
+    padding: 10px 20px;
+    display: flex;
+    padding-right: 30px;
+    /* justify-content: left; Center the logo */
+    /* align-items: center; */
+    /* position: relative; Required for the line positioning */
+    flex-direction: column; /* Stack the logo and line vertically */
+}
+
+.header-logo {
+    width: 180px; /* Adjust this to match your logo size */
+    height: auto;
+    margin: 20px 0; /* Vertical margin to separate the logo and line */
+}
+
+.header-divider {
+    width: 100%;
+    border: 1px solid #ccc; /* Line color and thickness */
+    margin-top: 10px; /* Space between the logo and the line */
+}

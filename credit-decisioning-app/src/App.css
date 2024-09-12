@@ -1,0 +1,232 @@
+.App {
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* margin-top: 30px; */
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #070D1B;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.hero-heading {
+  position: absolute;
+  font-family: 'Syne', sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  color: #FFFFFF; /* Default color for the text */
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap; /* Ensure text doesn't wrap */
+  overflow: hidden; /* Hide text overflow */
+  display: inline-flex; /* Flexbox for inline text */
+  align-items: center;
+}
+
+.hero-heading .typing {
+  display: inline; /* Ensure inline display for smooth animation */
+  position: relative; /* For precise control of animation */
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 5s steps(20, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+.hero-heading .highlighted {
+  color: #FEC544;
+  visibility: hidden; /* Initially hidden */
+  display: inline; /* Ensure inline display for smooth animation */
+  position: relative; /* Relative position for animation */
+  animation: highlight 5s steps(20, end) infinite; 
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20ch;
+  }
+}
+
+@keyframes highlight {
+  0%, 50% {
+    visibility: hidden;
+  }
+  70%, 100% {
+    visibility: visible;
+  }
+} 
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #FFFFFF;
+  }
+}
+
+.hero-subtext {
+  position: absolute;
+  top: 100%;
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+  color: #FFFFFF;
+  z-index: 3;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  transform: translateY(30px); /* Adjust as needed for spacing */
+}
+
+
+.bubbles-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  animation: bubble-flow 50s infinite;
+}
+
+.bubble.small {
+  width: 50px;
+  height: 50px;
+  animation-duration: 25s;
+}
+
+.bubble.medium {
+  width: 80px;
+  height: 80px;
+  animation-duration: 30s;
+}
+
+.bubble.large {
+  width: 120px;
+  height: 120px;
+  animation-duration: 35s;
+}
+
+/* Random bubble positions and animation */
+.bubble:nth-child(1) { top: 100%; left: 10%; animation-delay: -10s; }
+.bubble:nth-child(2) { top: 100%; right: 25%; animation-delay: -15s; }
+.bubble:nth-child(3) { top: 100%; left: 40%; animation-delay: -20s; }
+.bubble:nth-child(4) { top: 100%; right: 55%; animation-delay: -25s; }
+.bubble:nth-child(5) { top: 100%; left: 70%; animation-delay: -30s; }
+.bubble:nth-child(6) { top: 100%; right: 85%; animation-delay: -352s; }
+
+@keyframes bubble-flow {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-800%);
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+  background-color: #0B0010;
+}
+
+.image-upload-column {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px; 
+}
+
+.uploaded-image {
+  max-width: 845px;
+  height: auto;
+  border-radius: 5px;
+  padding-right: 250px;
+  padding-left: 250px;
+}
+
+.form-column {
+  flex: 1;
+  /* padding: 20px; */
+  background-color: #0B0010;;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-color: #03041C;
+  border-width: 1px;
+  border-radius: 5px;
+  max-width: 600px; 
+  margin-left: 150px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0B0010;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  background-color: #0B0010;
+}
+
+.prediction-section {
+  background-color: #0B0010; /* Background color matching your theme */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Center the prediction section */
+  max-width: 600px; /* Optional: Limit the width */
+  text-align: center; /* Center the text */
+}
+
+.prediction-section h2 {
+  font-size: 24px;
+  color: #FEC544; /* Heading color */
+  margin-bottom: 10px;
+}
+
+.prediction-section p {
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #FFFFFF; /* Adjust the color if needed */
+  margin-top: 20px;
+
+}
