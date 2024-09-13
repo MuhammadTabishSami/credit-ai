@@ -18,6 +18,8 @@ This project involves designing, developing, and deploying an AI-powered credit 
 
 ## Methodology
 
+![Methodology Diagram](https://excalidraw.com/#json=MObi-wwy4yQzqlUQuMdh8,wafU0DqWbTvWJ3JfdjEPPA)
+
 ### 1. Data Collection and Integration
 
 - **Data Source**: The primary dataset is sourced from Kaggle.
