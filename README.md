@@ -18,7 +18,7 @@ This project involves designing, developing, and deploying an AI-powered credit 
 
 ## Methodology
 
-![Methodology Diagram](https://excalidraw.com/#json=MObi-wwy4yQzqlUQuMdh8,wafU0DqWbTvWJ3JfdjEPPA)
+![image](https://github.com/user-attachments/assets/331ab655-bcf2-4dbc-861d-083436cb48a9)
 
 ### 1. Data Collection and Integration
 
