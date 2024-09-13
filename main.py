@@ -1,4 +1,5 @@
 # importing libraries
+import os
 from fastapi import FastAPI,Request,Form
 from fastapi.responses import JSONResponse
 # from fastapi.templating import Jinja2Templates
@@ -11,11 +12,17 @@ from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 # Creating FAST/API instance
 app=FastAPI()
 
+if os.getenv("ENV") == "development":
+    allow_origins = ["http://localhost:3000"]  # Allow localhost for development
+else:
+    allow_origins = ["*"]  # Allow all origins for production
+
 # Enabling CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","http://35.178.138.99:3000"],
+    # allow_origins=["http://localhost:3000",'*'],
     # allow_credentials=['*'],
+    allow_origins= allow_origins,
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*']
