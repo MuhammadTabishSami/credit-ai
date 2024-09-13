@@ -16,38 +16,40 @@ This project involves designing, developing, and deploying an AI-powered credit 
 - **Encourage fairer lending practices** by using transparent AI models.
 - **Enhance customer experience** through instant decisioning.
 
-## Data Collection and Integration
+## Methodology
+
+### 1. Data Collection and Integration
 
 - **Data Source**: The primary dataset is sourced from Kaggle.
 - **Data Ingestion/Pipeline**: A data ingestion pipeline is designed to collect, clean, and preprocess the data, ensuring the model has high-quality inputs.
 
-## Data Preprocessing and Feature Engineering
+### 2. Data Preprocessing and Feature Engineering
 
 - **Data Cleaning**: Handle missing values, outliers, and inconsistencies in the dataset.
 - **Feature Engineering**: Create meaningful features from raw data to improve model performance.
 - **Data Transformation**: Normalize the data, encode categorical variables, and scale numerical features.
 
-## Model Development
+### 3. Model Development
 
 - **Model Selection**: Algorithms like logistic regression, random forest, and gradient boosting are evaluated.
 - **Training and Validation**: The dataset is split into training, validation, and test sets to ensure model robustness. Model performance is assessed using appropriate metrics.
 
-## Methodology
 
-### 1. Model Evaluation and Validation
+
+### 4. Model Evaluation and Validation
 Evaluate models using metrics like precision, recall, F1-score, and others to ensure accurate predictions.
 
-### 2. Model Deployment
+### 5. Model Deployment
 - **API Development**: Flask or FastAPI is used to develop real-time APIs for decision-making.
 - **Monitoring and Logging**: Implement monitoring for tracking model performance and logging predictions.
 - **Dockerization**: Two Docker files are created (one for the frontend and one for the backend), containerizing the entire ML application.
 - **Cloud Deployment**: The AI-powered credit-scoring application is deployed on AWS ECS.
 
-## Frontend
+### 6. Frontend
 
 The frontend for the Credit AI system is developed using **React.js**. This interface allows users to submit loan applications and instantly view decisions powered by the AI model.
 
-## Docker Integration
+### 7. Docker Integration
 
 Two Docker containers were created:
 - **Frontend Container**: Containerizes the React.js application.
